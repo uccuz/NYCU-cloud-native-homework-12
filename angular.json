@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "w12-homework": "apps/w12-homework",
+    "w12-homework-e2e": "apps/w12-homework-e2e"
+  }
+}

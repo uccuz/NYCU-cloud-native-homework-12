@@ -1,0 +1,92 @@
+{
+  "projectType": "application",
+  "sourceRoot": "apps/w12-homework/src",
+  "prefix": "w12-homework",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/w12-homework",
+        "index": "apps/w12-homework/src/index.html",
+        "main": "apps/w12-homework/src/main.ts",
+        "polyfills": "apps/w12-homework/src/polyfills.ts",
+        "tsConfig": "apps/w12-homework/tsconfig.app.json",
+        "assets": [
+          "apps/w12-homework/src/favicon.ico",
+          "apps/w12-homework/src/assets"
+        ],
+        "styles": ["apps/w12-homework/src/styles.css"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/w12-homework/src/environments/environment.ts",
+              "with": "apps/w12-homework/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "w12-homework:build:production"
+        },
+        "development": {
+          "browserTarget": "w12-homework:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "w12-homework:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/w12-homework/**/*.ts",
+          "apps/w12-homework/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/w12-homework"],
+      "options": {
+        "jestConfig": "apps/w12-homework/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

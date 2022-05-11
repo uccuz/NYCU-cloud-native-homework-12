@@ -1,0 +1,27 @@
+{
+  "sourceRoot": "apps/w12-homework-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/w12-homework-e2e/cypress.json",
+        "devServerTarget": "w12-homework:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "w12-homework:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/w12-homework-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["w12-homework"]
+}
