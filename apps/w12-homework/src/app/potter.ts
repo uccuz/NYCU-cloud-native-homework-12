@@ -22,9 +22,38 @@ export class Potter {
 
     get calPrice() {
         let price = 0;
-        for(let i=0; i<Potter.num_of_books; i++) {
-            price += this.books_dic[i]*Potter.book_price;
+        while(this.get_number_of_books(this.books_dic) !== 0){
+            let number_of_distinct_book = this.get_number_of_distinct_books(this.books_dic);
+            price += Potter.book_price * Potter.discount[number_of_distinct_book] * number_of_distinct_book;
+            this.remove_one_of_each_book(this.books_dic);
         }
+
         return price;
     }
+
+    private get_number_of_books(books: {[key: number]: number}) {
+        let sum = 0;
+        for(let i=0; i<Potter.num_of_books; i++) {
+            sum += this.books_dic[i];
+        }
+        return sum;
+    }
+
+    private remove_one_of_each_book(books: {[key: number]: number}) {
+        for(let i=0; i<Potter.num_of_books; i++) {
+            if(this.books_dic[i] !== 0) {
+                this.books_dic[i] -= 1;
+            }
+        }
+	}
+
+    private get_number_of_distinct_books(books: {[key: number]: number}) {
+        let num = 0;
+        for(let i=0; i<Potter.num_of_books; i++) {
+            if(this.books_dic[i] !== 0) {
+                num += 1;
+            }
+        }
+        return num;
+	}
 }
