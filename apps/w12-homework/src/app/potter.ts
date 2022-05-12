@@ -4,6 +4,6 @@ export class Potter {
     }
 
     get calPrice() {
-        return -1;
+        return 0;
     }
 }
