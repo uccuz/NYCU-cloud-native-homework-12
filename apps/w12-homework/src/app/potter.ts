@@ -10,7 +10,7 @@ export class Potter {
 
     buyBook(books: number[]) {
         for(let book of books) {
-            if(!this.books_dic[book]) {
+            if(this.books_dic[book] !== undefined) {
                 this.books_dic[book] += 1;
             }
         }
