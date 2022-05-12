@@ -68,4 +68,25 @@ describe('Potter', () => {
     expect(potter.calPrice).toBe(8 * 5 * 0.75);
   });
 
+  // Test several discount
+  test('several discount1', () => {
+    potter.buyBook([0,0,1]);
+    expect(potter.calPrice).toBe(8 + (8 * 2 * 0.95));
+  });
+
+  test('several discount2', () => {
+    potter.buyBook([0, 0, 1, 1]);
+    expect(potter.calPrice).toBe(2 * (8 * 2 * 0.95));
+  });
+
+  test('several discount3', () => {
+    potter.buyBook([0, 0, 1, 2, 2, 3]);
+    expect(potter.calPrice).toBe((8 * 4 * 0.8) + (8 * 2 * 0.95));
+  });
+
+  test('several discount4', () => {
+    potter.buyBook([0, 1, 1, 2, 3, 4]);
+    expect(potter.calPrice).toBe(8 + (8 * 5 * 0.75));
+  });
+
 });

@@ -17,7 +17,6 @@ export class Potter {
                 this.books_dic[book] += 1;
             }
         }
-        console.log(this.books_dic);
     }
 
     get calPrice() {
