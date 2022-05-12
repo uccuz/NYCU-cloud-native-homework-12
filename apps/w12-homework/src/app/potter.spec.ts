@@ -1,7 +1,7 @@
 import { Potter } from './potter';
 
-describe('Potter', () => {
-  it('should create an instance', () => {
-    expect(new Potter()).toBeTruthy();
-  });
+test('test no book', () => {
+  const potter = new Potter();
+  potter.buyBook([0]);
+  expect(potter.calPrice).toBe(0);
 });
