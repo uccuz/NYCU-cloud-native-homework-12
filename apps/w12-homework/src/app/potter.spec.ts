@@ -1,13 +1,27 @@
 import { Potter } from './potter';
 
-test('test no book', () => {
-  const potter = new Potter();
-  potter.buyBook([]);
-  expect(potter.calPrice).toBe(0);
-});
+describe('Potter', () => {
+  let potter: Potter;
 
-test('test one book', () => {
-  const potter = new Potter();
-  potter.buyBook([1]);
-  expect(potter.calPrice).toBe(8);
+  beforeEach(() => {
+    potter = new Potter();
+  });
+
+  it('should create an instance', () => {
+    expect(potter).toBeTruthy();
+  });
+
+  // Test basics Potter functionality
+  test('no book', () => {
+    potter.buyBook([]);
+    expect(potter.calPrice).toBe(0);
+  });
+
+  test('one of book1', () => {
+    potter.buyBook([0]);
+    expect(potter.calPrice).toBe(8);
+  });
+
+
+
 });
